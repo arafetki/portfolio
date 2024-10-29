@@ -3,7 +3,7 @@
 import { PROFILE } from "@/config";
 import { NAV_ITEMS } from "@/config";
 import Navbar from "@/components/nav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileMenu from "@/components/mobile-menu";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,16 @@ import { Separator } from "@/components/ui/separator";
 export default function Header() {
 
     const [showMobileMenu,setShowMobileMenu] = useState<boolean>(false);
+
+    useEffect(()=>{
+
+        if (showMobileMenu) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "unset"
+        }
+
+    },[showMobileMenu])
 
     return (
         <header className="sticky top-0 w-full z-50">

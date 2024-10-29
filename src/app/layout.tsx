@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${interSans.variable} ${robotoMono.variable} font-sans antialiased min-h-screen flex flex-col overflow-hidden supports-[overflow-clip]:overflow-clip`}
+        className={`${interSans.variable} ${robotoMono.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
         <Providers>
           <Header/>
