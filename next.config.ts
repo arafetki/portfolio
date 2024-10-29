@@ -5,5 +5,4 @@ const nextConfig: NextConfig = {
   reactStrictMode: true
 };
  
-// withContentCollections must be the outermost plugin
 export default withContentCollections(nextConfig);
