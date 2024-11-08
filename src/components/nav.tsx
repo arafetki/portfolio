@@ -3,8 +3,6 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useState } from "react";
-import { Separator } from "@/components/ui/separator";
-import ToggleThemeButton from "@/components/toggle-theme";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 

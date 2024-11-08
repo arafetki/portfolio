@@ -1,15 +1,9 @@
 "use client";
 
-import { PROFILE } from "@/config";
 import { NAV_ITEMS } from "@/config";
 import Navbar from "@/components/nav";
 import { useEffect, useState } from "react";
 import MobileMenu from "@/components/mobile-menu";
-import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import ToggleThemeButton from "@/components/toggle-theme";
-import { Separator } from "@/components/ui/separator";
 import Logo from "@/components/logo";
 
 export default function Header() {
