@@ -2,12 +2,14 @@ import {
     X,
     AlignJustify,
     Moon,
-    Sun
+    Sun,
+    Lightbulb
 } from "lucide-react";
 
 export const Icons = {
     menu: AlignJustify,
     close: X,
     moon: Moon,
-    sun: Sun
+    sun: Sun,
+    bulb: Lightbulb
 }

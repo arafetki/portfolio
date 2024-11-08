@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ToggleThemeButton from "@/components/toggle-theme";
 import { Separator } from "@/components/ui/separator";
+import Logo from "@/components/logo";
 
 export default function Header() {
 
@@ -27,28 +28,9 @@ export default function Header() {
 
     return (
         <header className="sticky top-0 w-full z-50">
-            <div className="container h-24 flex items-center justify-between px-6">
-                <h1 className="md:grow font-bold text-base md:text-lg">
-                    <Link
-                        href="/"
-                        onClick={()=>{ if (showMobileMenu) setShowMobileMenu(false)}}
-                    >
-                        {PROFILE.fullName}
-                    </Link>
-                </h1>
-                <Navbar items={NAV_ITEMS}/>
-                <div className="flex items-center gap-1">
-                    <ToggleThemeButton/>
-                    <Separator orientation="vertical" className="md:hidden h-6"/>
-                    <Button
-                        onPress={()=>setShowMobileMenu(!showMobileMenu)}
-                        size="icon"
-                        variant="ghost"
-                        className="md:hidden rounded-lg"
-                    >
-                        {showMobileMenu? <Icons.close size={22}/>: <Icons.menu size={22}/>}
-                    </Button>
-                </div>
+            <div className="max-w-7xl mx-auto h-24 flex items-center justify-between py-6 pl-6 pr-2">
+                <Logo closeMenu={()=>{ if (showMobileMenu) setShowMobileMenu(false)}}/>
+                <Navbar items={NAV_ITEMS} showMobileMenu={showMobileMenu} toggleMenu={()=>setShowMobileMenu(!showMobileMenu)}/>
             </div>
             {showMobileMenu && <MobileMenu items={NAV_ITEMS} closeMenu={()=>setShowMobileMenu(false)}/>}
         </header>

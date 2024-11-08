@@ -8,7 +8,6 @@ import Footer from "@/components/footer";
 
 import "./globals.css";
 
-
 const interSans = Inter({
   subsets: ["latin"],
   style: ["italic","normal"],
