@@ -1,7 +1,7 @@
 export const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3000'
 
 export const SITE_METADATA = {
-    title: "Arafet BenKilani | Cloud DevSecOps Engineer",
+    title: "Arafet BenKilani",
     description: "Personal portfolio and blog showcasing my offered services and writeups"
 }
 
@@ -12,19 +12,15 @@ export const NAV_ITEMS = [
     },
     {
         name: "About",
-        href: "/#about"
-    },
-    {
-        name: "Services",
-        href: "/#services"
-    },
-    {
-        name: "Contact",
-        href: "/#contact"
+        href: "/about"
     },
     {
         name: "Blog",
         href: "/blog"
+    },
+    {
+        name: "Contact",
+        href: "/contact"
     }
 ]
 
