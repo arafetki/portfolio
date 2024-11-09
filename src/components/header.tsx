@@ -1,8 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "@/config";
 import Navbar from "@/components/nav";
-import { useEffect, useState } from "react";
 import MobileMenu from "@/components/mobile-menu";
 
 export default function Header() {

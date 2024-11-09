@@ -40,7 +40,7 @@ export default function Navbar({items,toggleMenu,showMobileMenu, closeMenu}: Nav
                     })}
                 </ul>
                 <Button
-                    onPress={toggleMenu}
+                    onClick={toggleMenu}
                     size="icon"
                     variant="ghost"
                     className="md:hidden rounded-lg"

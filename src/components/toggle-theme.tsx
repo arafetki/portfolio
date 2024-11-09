@@ -12,7 +12,7 @@ export default function ToggleThemeButton() {
         <Button
             variant="ghost"
             size="icon"
-            onPress={toggleTheme}
+            onClick={toggleTheme}
             className="rounded-lg"
         >
             <Icons.sun className="size-[20px] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
