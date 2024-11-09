@@ -1,14 +1,45 @@
 import { PROFILE } from "@/config";
 import ToggleThemeButton from "@/components/toggle-theme";
+import Link from "next/link";
+import Newsletter from "@/components/newsletter";
+import Links from "@/components/links";
+import { Icons } from "@/components/icons";
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="box flex flex-col items-center gap-y-2 md:flex-row md:justify-between">
-        <p className="text-pretty text-center tracking-wide text-muted-foreground">
-          © Copyright {new Date().getFullYear()}. {PROFILE.fullName}
-        </p>
-        <ToggleThemeButton />
+    <footer className="bg-zinc-200 dark:bg-zinc-900">
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        <section className="py-8">
+          <Newsletter />
+        </section>
+        <section className="flex flex-col-reverse gap-y-6 border-t border-zinc-400 pt-8 dark:border-zinc-700 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-1 text-pretty text-sm tracking-wide text-muted-foreground">
+            <p>
+              © Copyright {new Date().getFullYear()}. {PROFILE.fullName}
+            </p>
+            <p>
+              Code snippets are{" "}
+              <Link
+                href="https://opensource.org/license/MIT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-accent-foreground"
+              >
+                MIT licensed
+              </Link>
+            </p>
+          </div>
+          <div className="flex items-center gap-x-5">
+            <Links />
+            <Link href="#" target="_blank">
+              <Icons.feed
+                strokeWidth={3}
+                className="size-6 text-zinc-500 hover:text-primary"
+              />
+            </Link>
+            <ToggleThemeButton />
+          </div>
+        </section>
       </div>
     </footer>
   );

@@ -1,22 +1,19 @@
 "use client";
 
 import { useTheme } from "@/hooks/useTheme";
-import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 
 export default function ToggleThemeButton() {
   const { toggleTheme } = useTheme();
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
+    <button
       onClick={toggleTheme}
-      className="rounded-lg"
+      className="relative text-zinc-500 hover:text-primary"
     >
-      <Icons.sun className="size-[20px] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Icons.moon className="absolute size-[20px] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <Icons.sun size={24} className="absolute scale-100 dark:scale-0" />
+      <Icons.moon size={24} className="scale-0 dark:scale-100" />
       <span className="sr-only">Toggle theme</span>
-    </Button>
+    </button>
   );
 }

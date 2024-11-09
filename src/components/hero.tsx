@@ -4,35 +4,15 @@ import { PROFILE } from "@/config";
 import Bar from "@/components/bar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Icons } from "@/components/icons";
-
-export const SOCIAL_LINKS = [
-  {
-    name: "GitHub",
-    icon: <Icons.github className="size-7 fill-zinc-500 hover:fill-primary" />,
-    href: "https://github.com/arafetki",
-  },
-  {
-    name: "LinkedIn",
-    icon: (
-      <Icons.linkedin className="size-7 fill-zinc-500 hover:fill-primary" />
-    ),
-    href: "https://www.linkedin.com/in/arafet-ben-kilani",
-  },
-  {
-    name: "Reddit",
-    icon: <Icons.reddit className="size-7 fill-zinc-500 hover:fill-primary" />,
-    href: "https://www.reddit.com/user/arfoutbenk",
-  },
-];
+import Links from "@/components/links";
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col items-center gap-y-6 py-8 xl:flex-row xl:justify-between"
+      className="flex flex-col items-center gap-y-6 py-8 lg:flex-row lg:justify-between"
     >
-      <div className="order-2 xl:order-1">
+      <div className="order-2 lg:order-1">
         <Bar className="my-2" />
         <h1 className="bg-gradient-to-r from-green-600 to-primary bg-clip-text font-mono text-6xl font-extrabold text-transparent lg:text-8xl">
           <span className="block">Build</span>
@@ -62,24 +42,10 @@ export default function Hero() {
         </div>
         <div className="mt-12 flex items-center gap-4">
           <Bar className="grow" />
-          <ul className="flex items-center gap-5">
-            {SOCIAL_LINKS.map((item) => {
-              return (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.icon}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <Links />
         </div>
       </div>
-      <div className="order-1 size-[200px] animate-avatar bg-[url('/me.jpg')] bg-cover bg-center bg-no-repeat shadow-[inset_0_0_0_7px] shadow-secondary/80 md:size-[250px] lg:size-[300px] xl:order-2 xl:size-[375px]" />
+      <div className="order-1 size-[200px] animate-avatar bg-[url('/me.jpg')] bg-cover bg-center bg-no-repeat shadow-[inset_0_0_0_7px] shadow-secondary/80 md:size-[250px] lg:hidden" />
     </section>
   );
 }

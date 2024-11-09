@@ -55,9 +55,9 @@ export default function Navbar({
           className="rounded-lg md:hidden"
         >
           {showMobileMenu ? (
-            <Icons.close size={22} />
+            <Icons.close className="!size-[22px]" />
           ) : (
-            <Icons.menu size={22} />
+            <Icons.menu className="!size-[22px]" />
           )}
         </Button>
       </div>
