@@ -8,46 +8,59 @@ import Logo from "@/components/logo";
 import { usePathname } from "next/navigation";
 
 type NavbarProps = {
-    items:{
-            name:string
-            href:string
-        }[]
-    showMobileMenu: boolean
-    closeMenu: () => void
-    toggleMenu: () => void
-}
+  items: {
+    name: string;
+    href: string;
+  }[];
+  showMobileMenu: boolean;
+  closeMenu: () => void;
+  toggleMenu: () => void;
+};
 
-export default function Navbar({items,toggleMenu,showMobileMenu, closeMenu}: NavbarProps) {
+export default function Navbar({
+  items,
+  toggleMenu,
+  showMobileMenu,
+  closeMenu,
+}: NavbarProps) {
+  const path = usePathname();
 
-    const path = usePathname()
-
-    return (
-        <nav className="max-w-7xl mx-auto h-24 flex items-center justify-between p-3 z-50">
-            <Logo closeMenu={closeMenu}/>
-            <div>
-                <ul className="hidden md:flex items-center gap-4 py-2 px-6">
-                    {items.map(item=>{
-                        return (
-                            <li key={item.name}>
-                                <Link
-                                    href={item.href}
-                                    className={cn("text-muted-foreground p-3 transition-all ease-linear",path===item.href ? "text-primary border-b-2 border-primary" : "rounded-sm hover:bg-accent hover:text-accent-foreground")}
-                                >
-                                    {item.name}
-                                </Link>
-                            </li>
-                        );
-                    })}
-                </ul>
-                <Button
-                    onClick={toggleMenu}
-                    size="icon"
-                    variant="ghost"
-                    className="md:hidden rounded-lg"
+  return (
+    <nav className="z-50 mx-auto flex h-24 max-w-7xl items-center justify-between p-3">
+      <Logo closeMenu={closeMenu} />
+      <div>
+        <ul className="hidden items-center gap-4 px-6 py-2 md:flex">
+          {items.map((item) => {
+            return (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "text-muted-foreground p-3 transition-all ease-linear",
+                    path === item.href
+                      ? "text-primary border-b-2 border-primary"
+                      : "rounded-sm hover:bg-accent hover:text-accent-foreground"
+                  )}
                 >
-                    {showMobileMenu? <Icons.close size={22}/>: <Icons.menu size={22}/>}
-                </Button>
-            </div>
-        </nav>
-    );
+                  {item.name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        <Button
+          onClick={toggleMenu}
+          size="icon"
+          variant="ghost"
+          className="rounded-lg md:hidden"
+        >
+          {showMobileMenu ? (
+            <Icons.close size={22} />
+          ) : (
+            <Icons.menu size={22} />
+          )}
+        </Button>
+      </div>
+    </nav>
+  );
 }

@@ -57,3 +57,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .box {
+    @apply mx-auto max-w-7xl p-6 lg:py-10;
+  }
+}
