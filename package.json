@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"content-collections watch\" \"next dev --turbopack\"",
+    "dev": "concurrently \"content-collections watch\" \"next dev -p 3001 --turbopack\"",
     "build": "content-collections build && next build",
     "start": "next start",
     "lint": "next lint"

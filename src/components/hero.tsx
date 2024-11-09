@@ -2,9 +2,9 @@
 
 import { PROFILE } from "@/config";
 import Bar from "@/components/bar";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Icons } from "./icons";
+import { Icons } from "@/components/icons";
 
 export const SOCIAL_LINKS = [
     {
@@ -37,7 +37,7 @@ export default function Hero() {
                     {PROFILE.bio}
                 </p>
                 <div className="flex items-center gap-3 mt-6">
-                    <Button variant="outline" size="lg" className="border-primary"><Link href="/resume.pdf" target="_blank">Resume</Link></Button>
+                    <Button variant="outline" size="lg" className="border-primary"><Link href={PROFILE.resumeURL} target="_blank">Resume</Link></Button>
                     <Button size="lg" className="bg-gradient-to-r from-green-600 to-primary hover:from-primary hover:to-green-600">
                         <Link href="/contact">Get In Touch</Link>
                     </Button>
