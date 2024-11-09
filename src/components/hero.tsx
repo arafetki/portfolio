@@ -3,7 +3,6 @@
 import { PROFILE } from "@/config";
 import Bar from "@/components/bar";
 import { Button } from "./ui/button";
-import Image from "next/image";
 
 export default function Hero() {
     return (
