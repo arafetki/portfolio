@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import {allPosts} from "content-collections";
-import { Separator } from "@/components/ui/separator";
 import { PROFILE } from "@/config";
 import Bar from "@/components/bar";
 import PostCard from "@/components/post-card";
@@ -25,7 +24,10 @@ export default function Blog() {
                         </p>
                     </div>
                 </section>
-                <Separator/>
+                <div className="flex items-center gap-2">
+                    <div className="grow h-0 border border-dashed"/>
+                    <Bar/>
+                </div>
                 <section className="mt-8">
                     {allPosts.length ? (
                         <div className="grid gap-10 sm:grid-cols-2">

@@ -60,8 +60,24 @@ const config: Config = {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: ["var(--font-inter-sans)", "sans-serif"],
+				sans: ["var(--font-roboto-flex-sans)", "sans-serif"],
 				mono: ["var(--font-roboto-mono)"]
+			},
+			keyframes: {
+				avatar: {
+				"0%": {
+					borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%"
+				},
+				"50%": {
+					borderRadius: "30% 60% 70% 40%/50% 60% 30% 60%"
+				},
+				"100%": {
+					borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%"
+				}
+				}
+			},
+			animation: {
+				"avatar": "avatar 6s ease-in-out infinite"
 			}
 		}
 	},

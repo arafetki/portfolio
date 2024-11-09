@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-interface BarProps extends React.HTMLProps<HTMLDivElement> {
+interface BarProps extends React.HTMLAttributes<HTMLDivElement> {
     orientation?: "horizantal" | "vertical"
     height?: number
     width?: number
@@ -8,9 +8,9 @@ interface BarProps extends React.HTMLProps<HTMLDivElement> {
 
 export default function Bar({orientation = "horizantal", height = 6, width= 64, className, ...rest}:BarProps) {
     return (
-        <div 
+        <div
             style={ orientation == "horizantal" ? {height: height, width: width} : {height: width, width: height}} 
-            className= {cn("inline-block bg-gradient-to-r from-red-500 to-primary",className)}
+            className= {cn("inline-block bg-gradient-to-r from-primary to-green-600 ",className)}
             {...rest}
         />
     );

@@ -34,7 +34,7 @@ export const PROFILE = {
         city: "Houaria",
         country: "Tunisia"
     },
-    bio: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam tempore dignissimos voluptate illo vel placeat dolorum soluta optio. Nobis, illum.",
+    bio: "Hey! I am Arafet BenKilani, a fresh Engineering Graduate from SUPCOM and a Cloud DevSecops Enthusiast based in Tunisia.",
     resume: "/resume.pdf"
 }
 

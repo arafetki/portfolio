@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-interface CalloutProps extends React.HTMLProps<HTMLDivElement> {
+interface CalloutProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   type?: "default" | "primary" | "warning" | "danger"
 }
