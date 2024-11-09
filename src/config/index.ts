@@ -34,22 +34,7 @@ export const PROFILE = {
         city: "Houaria",
         country: "Tunisia"
     },
-    bio: "Hey! I am Arafet BenKilani, a fresh Engineering Graduate from SUPCOM and a Cloud DevSecops Enthusiast based in Tunisia.",
-    resume: "/resume.pdf"
+    bio: "Hey! I am Arafet BenKilani, a recent Engineering Graduate from SUPCOM and a Cloud DevSecops Enthusiast based in Tunisia.",
+    resumeURL: `${SITE_URL}/resume.pdf`
 }
 
-
-export const SOCIAL_LINKS = [
-    {
-        name: "LinkedIn",
-        href: "https://www.linkedin.com/in/arafet-ben-kilani"
-    },
-    {
-        name: "GitHub",
-        href: "https://github.com/arafetki"
-    },
-    {
-        name: "Reddit",
-        href: "https://www.reddit.com/user/arfoutbenk"
-    }
-]
