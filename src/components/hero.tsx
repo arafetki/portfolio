@@ -37,8 +37,10 @@ export default function Hero() {
                     {PROFILE.bio}
                 </p>
                 <div className="flex items-center gap-3 mt-6">
-                    <Button variant="outline" size="lg" className="border-primary">About me</Button>
-                    <Button size="lg" className="bg-gradient-to-r from-green-600 to-primary hover:from-primary hover:to-green-600">Get In Touch</Button>
+                    <Button variant="outline" size="lg" className="border-primary"><Link href="/resume.pdf" target="_blank">Resume</Link></Button>
+                    <Button size="lg" className="bg-gradient-to-r from-green-600 to-primary hover:from-primary hover:to-green-600">
+                        <Link href="/contact">Get In Touch</Link>
+                    </Button>
                 </div>
                 <div className="mt-12 flex items-center gap-4">
                     <Bar className="grow"/>

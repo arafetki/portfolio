@@ -15,10 +15,10 @@ export default function PostCard({post,className,...rest}: PostCardProps) {
         >
             <h1 className="font-bold text-3xl">{post.title}</h1>
             <time
-                dateTime={post.date.toISOString()} 
+                dateTime={post.publishedDate.toISOString()} 
                 className="block text-sm md:text-base" 
             >
-                Published on {formatDate(post.date)}
+                Published on {formatDate(post.publishedDate)}
             </time>
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg tracking-tight leading-relaxed">{post.summary}</p>
             <ul className="flex gap-x-2">
