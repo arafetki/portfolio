@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Roboto_Flex, Roboto_Mono } from "next/font/google";
 import { SITE_METADATA } from "@/config";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/providers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -51,6 +52,7 @@ export default function RootLayout({
           <main className="grow">{children}</main>
           <Footer />
           <SpeedInsights />
+          <Toaster richColors closeButton position="top-right" />
         </Providers>
       </body>
     </html>

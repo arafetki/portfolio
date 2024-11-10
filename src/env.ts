@@ -7,10 +7,14 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
+    RESEND_API_KEY: z.string().min(1),
+    RESEND_AUDIENCE_ID: z.string().min(1),
   },
   client: {},
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID,
   },
   extends: [vercel()],
   emptyStringAsUndefined: true,

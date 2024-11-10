@@ -1,16 +1,17 @@
 "use client";
 
+import { useEffect } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { NewsletterFormSchema } from "@/lib/zod";
 import { z } from "zod";
 import { SubscribeToNewsletter } from "@/server/actions";
-import { objectToFormData } from "@/lib/utils";
-import { useEffect } from "react";
+import { objectToFormData, safeAsync } from "@/lib/utils";
+import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
-export type NewsletterFormData = z.infer<typeof NewsletterFormSchema>;
+type NewsletterFormData = z.infer<typeof NewsletterFormSchema>;
 
 export default function Newsletter() {
   const {
@@ -32,11 +33,13 @@ export default function Newsletter() {
 
   const onValidFormSubmit: SubmitHandler<NewsletterFormData> = async (data) => {
     const formData = objectToFormData(data);
-    try {
-      await SubscribeToNewsletter(formData);
-    } catch (err) {
-      console.error(err);
+    const [error] = await safeAsync(SubscribeToNewsletter(formData));
+    if (error) {
+      return toast.error("Uh oh! Something went wrong.", {
+        description: "There was an issue subscribing. Please try again.",
+      });
     }
+    toast.success("Successfully subscribed to the newsletter!");
   };
   return (
     <div className="flex flex-col gap-y-6 lg:flex-row lg:items-center lg:justify-between">
@@ -44,7 +47,7 @@ export default function Newsletter() {
         <p className="font-semibold">Subscribe to my newsletter</p>
         <p className="text-muted-foreground">
           Get a recap of the latest news, articles, videos and resources, sent
-          to your inbox every two weeks.
+          to your inbox.
         </p>
       </div>
       <form
@@ -54,7 +57,7 @@ export default function Newsletter() {
         <div className="space-y-1">
           <Input
             {...register("name")}
-            placeholder="Name"
+            placeholder="First and Last Name"
             type="text"
             required
             className={`${errors.name ? "border-destructive focus-visible:ring-0" : ""}`}

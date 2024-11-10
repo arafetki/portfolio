@@ -28,3 +28,18 @@ export function objectToFormData<T extends Record<string, unknown>>(
 
   return formData;
 }
+
+export function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function safeAsync<T, E = Error>(
+  promise: Promise<T>
+): Promise<[null, T] | [E, null]> {
+  try {
+    const res = await promise;
+    return [null, res];
+  } catch (err) {
+    return [err as E, null];
+  }
+}
