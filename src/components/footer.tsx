@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-x-5">
             <Links />
-            <Link href="#" target="_blank">
+            <Link href="/rss.xml" target="_blank">
               <Icons.feed
                 strokeWidth={3}
                 className="size-6 text-zinc-500 hover:text-primary"
