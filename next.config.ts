@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 import { withContentCollections } from "@content-collections/next";
-import "@/env";
+import { env } from "@/env";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -23,8 +23,8 @@ const nextConfig: NextConfig = {
     ],
   },
   env: {
-    NEXT_PUBLIC_SITE_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    NEXT_PUBLIC_SITE_URL: env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3001",
   },
 };

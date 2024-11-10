@@ -2,6 +2,7 @@ import { allPosts } from "content-collections";
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import { generateRssFeed } from "@/lib/rss";
+import Image from "next/image";
 
 type PostProps = {
   params: Promise<{
@@ -58,7 +59,15 @@ export default async function Post({ params }: PostProps) {
   return (
     <div>
       <div className="box">
-        <h1>{post.title}</h1>
+        <div className="space-y-2">
+          <h1>{post.title}</h1>
+          <Image
+            src={post.thumbnail}
+            alt={post.title}
+            height={600}
+            width={600}
+          />
+        </div>
       </div>
     </div>
   );

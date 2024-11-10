@@ -5,10 +5,6 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutoLinkHeadings from "rehype-autolink-headings";
 
-const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:3001";
-
 const posts = defineCollection({
   name: "posts",
   directory: "content/posts",
@@ -20,11 +16,7 @@ const posts = defineCollection({
     author: z.string(),
     publishedDate: z.coerce.date().optional().default(new Date()),
     modifiedDate: z.coerce.date().nullish(),
-    thumbnail: z
-      .string()
-      .url()
-      .optional()
-      .default(`${SITE_URL}/default_thumbnail.png`),
+    thumbnail: z.string().optional().default(`/default_thumbnail.png`),
   }),
   transform: async (doc, ctx) => {
     const mdx = await compileMDX(ctx, doc, {
