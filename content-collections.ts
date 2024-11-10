@@ -1,10 +1,11 @@
 import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
-import {SITE_URL} from "@/config";
 import rehypePrettyCode from "rehype-pretty-code";
-import remarkGfm from 'remark-gfm';
-import  rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 import rehypeAutoLinkHeadings from "rehype-autolink-headings";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
 
 const posts = defineCollection({
   name: "posts",
@@ -17,27 +18,32 @@ const posts = defineCollection({
     author: z.string(),
     publishedDate: z.coerce.date().optional().default(new Date()),
     modifiedDate: z.coerce.date().nullish(),
-    thumbnail: z.string().url().optional().default(`${SITE_URL}/default_thumbnail.png`),
+    thumbnail: z
+      .string()
+      .url()
+      .optional()
+      .default(`${SITE_URL}/default_thumbnail.png`),
   }),
-  transform: async (doc,ctx) => {
-    const mdx = await compileMDX(ctx,doc,{
-        rehypePlugins: [
-            [rehypePrettyCode,{theme: 'github-dark-high-contrast', keepBackground: false}],
-            rehypeSlug,
-            rehypeAutoLinkHeadings
+  transform: async (doc, ctx) => {
+    const mdx = await compileMDX(ctx, doc, {
+      rehypePlugins: [
+        [
+          rehypePrettyCode,
+          { theme: "github-dark-high-contrast", keepBackground: false },
         ],
-        remarkPlugins: [remarkGfm]
+        rehypeSlug,
+        rehypeAutoLinkHeadings,
+      ],
+      remarkPlugins: [remarkGfm],
     });
 
     return {
-        ...doc,
-        mdx,
-        slug: doc._meta.path,
-    }
-
+      ...doc,
+      mdx,
+      slug: doc._meta.path,
+    };
   },
 });
-
 
 export default defineConfig({
   collections: [posts],

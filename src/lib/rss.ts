@@ -1,4 +1,4 @@
-import { PROFILE, SITE_URL } from "@/config";
+import { PROFILE } from "@/config";
 import { type Post } from "content-collections";
 import { writeFileSync } from "fs";
 import RSS from "rss";
@@ -9,8 +9,8 @@ export function generateRssFeed(posts: Array<Post>) {
   const feed = new RSS({
     title: `${firstName}'s Blog | RSS Feed`,
     description: "The latest IT trends, tips, and more right here!",
-    site_url: `${SITE_URL}/blog`,
-    feed_url: `${SITE_URL}/rss.xml`,
+    site_url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,
+    feed_url: `${process.env.NEXT_PUBLIC_SITE_URL}/rss.xml`,
     copyright: `All rights reserved ${new Date().getFullYear()}`,
   });
 
@@ -18,7 +18,7 @@ export function generateRssFeed(posts: Array<Post>) {
     feed.item({
       title: post.title,
       description: post.summary,
-      url: `${SITE_URL}/posts/${post.slug}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/posts/${post.slug}`,
       date: post.publishedDate,
     })
   );
