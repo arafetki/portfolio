@@ -5,7 +5,9 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutoLinkHeadings from "rehype-autolink-headings";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
+const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3001";
 
 const posts = defineCollection({
   name: "posts",
