@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"content-collections watch\" \"next dev -p 3001 --turbopack\"",
-    "build": "content-collections build && next build",
+    "build": "pnpm db:generate && pnpm db:push && content-collections build && next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
