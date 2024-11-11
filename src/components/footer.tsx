@@ -1,16 +1,23 @@
 import { PROFILE } from "@/config";
 import ToggleThemeButton from "@/components/toggle-theme";
 import Link from "next/link";
-import Newsletter from "@/components/newsletter";
+import NewsletterForm from "@/components/newsletter-form";
 import Links from "@/components/links";
 import { Icons } from "@/components/icons";
 
 export default function Footer() {
   return (
     <footer className="bg-zinc-200 dark:bg-zinc-900">
-      <div className="mx-auto max-w-7xl px-6 py-8">
-        <section className="py-8">
-          <Newsletter />
+      <div className="my-container px-6 py-8">
+        <section className="flex flex-col gap-y-6 py-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="space-y-2 text-pretty text-sm">
+            <p className="font-semibold">Subscribe to my newsletter</p>
+            <p className="text-muted-foreground">
+              Get a recap of the latest news, articles, videos and resources,
+              sent to your inbox.
+            </p>
+          </div>
+          <NewsletterForm />
         </section>
         <section className="flex flex-col-reverse gap-y-6 border-t border-zinc-400 pt-8 dark:border-zinc-700 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1 text-pretty text-sm tracking-wide text-muted-foreground">

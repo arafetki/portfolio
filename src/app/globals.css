@@ -59,7 +59,13 @@
 }
 
 @layer utilities {
-  .box {
+  .my-container {
     @apply mx-auto max-w-7xl p-6 lg:py-10;
+  }
+  .bg-gradient-green-primary {
+    @apply bg-gradient-to-r from-green-500 to-primary;
+  }
+  .bg-gradient-primary-green {
+    @apply bg-gradient-to-r from-primary to-green-500;
   }
 }

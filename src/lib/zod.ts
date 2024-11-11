@@ -7,3 +7,5 @@ export const NewsletterFormSchema = z.object({
     .min(1, { message: "Email is required." })
     .email({ message: "Must be a valid email address." }),
 });
+
+export type NewsletterFormData = z.infer<typeof NewsletterFormSchema>;

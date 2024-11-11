@@ -43,3 +43,7 @@ export async function safeAsync<T, E = Error>(
     return [err as E, null];
   }
 }
+
+export function isBlank(str: string): boolean {
+  return str.trim().length === 0;
+}

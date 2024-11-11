@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div>
-      <div className="box">
+      <div className="my-container">
         <h1>About Page</h1>
       </div>
     </div>

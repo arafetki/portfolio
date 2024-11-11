@@ -1,4 +1,12 @@
-import { X, AlignJustify, Moon, Sun, Lightbulb, Rss } from "lucide-react";
+import {
+  X,
+  AlignJustify,
+  Moon,
+  Sun,
+  Lightbulb,
+  Rss,
+  ArrowUpRight,
+} from "lucide-react";
 
 export const Icons = {
   menu: AlignJustify,
@@ -7,6 +15,7 @@ export const Icons = {
   sun: Sun,
   bulb: Lightbulb,
   feed: Rss,
+  external: ArrowUpRight,
   github: ({ ...props }: React.SVGProps<SVGSVGElement>) => {
     return (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" {...props}>

@@ -1,7 +1,7 @@
 export default async function Page() {
   return (
     <div>
-      <div className="box">Topics</div>
+      <div className="my-container">Topics</div>
     </div>
   );
 }

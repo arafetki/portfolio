@@ -5,6 +5,7 @@ import Bar from "@/components/bar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Links from "@/components/links";
+import { Icons } from "./icons";
 
 export default function Hero() {
   return (
@@ -14,12 +15,25 @@ export default function Hero() {
     >
       <div className="order-2 lg:order-1">
         <Bar className="my-2" />
-        <h1 className="bg-gradient-to-r from-green-600 to-primary bg-clip-text font-mono text-6xl font-extrabold text-transparent lg:text-8xl">
+        <h1 className="bg-gradient-green-primary bg-clip-text font-mono text-6xl font-extrabold text-transparent lg:text-8xl">
           <span className="block">Build</span>
           <span className="block">Innovate</span>
         </h1>
-        <p className="mt-12 max-w-[60ch] text-pretty text-base font-medium tracking-tight text-muted-foreground md:text-lg">
-          {PROFILE.bio}
+        <p className="mt-12 max-w-prose text-pretty text-base font-medium tracking-tight text-muted-foreground md:text-lg [&>strong]:text-primary">
+          Hey! I am <strong>{PROFILE.fullName}</strong>, a recent Engineering
+          Graduate from{" "}
+          <strong>
+            <Link
+              href="https://supcom.tn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex"
+            >
+              <span>SUP&apos;COM</span>
+              <Icons.external size={14} />
+            </Link>
+          </strong>{" "}
+          and a Cloud DevSecOps Enthusiast based in Tunisia.
         </p>
         <div className="mt-6 flex items-center gap-3">
           <Button
@@ -34,7 +48,7 @@ export default function Hero() {
           </Button>
           <Button
             size="lg"
-            className="bg-gradient-to-r from-green-600 to-primary hover:from-primary hover:to-green-600"
+            className="bg-gradient-green-primary hover:bg-gradient-primary-green"
             asChild
           >
             <Link href="/contact">Get In Touch</Link>

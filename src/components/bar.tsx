@@ -20,10 +20,7 @@ export default function Bar({
           ? { height: height, width: width }
           : { height: width, width: height }
       }
-      className={cn(
-        "inline-block bg-gradient-to-r from-primary to-green-600 ",
-        className
-      )}
+      className={cn("inline-block bg-gradient-green-primary", className)}
       {...rest}
     />
   );

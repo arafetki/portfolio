@@ -13,7 +13,7 @@ export default function Blog() {
 
   return (
     <div>
-      <div className="box">
+      <div className="my-container">
         <section className="space-y-4 py-10">
           <Bar />
           <div className="space-y-8">

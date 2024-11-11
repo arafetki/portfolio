@@ -58,7 +58,7 @@ export default async function Post({ params }: PostProps) {
   if (!post) notFound();
   return (
     <div>
-      <div className="box">
+      <div className="my-container">
         <div className="space-y-2">
           <h1>{post.title}</h1>
           <Image
