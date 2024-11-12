@@ -37,3 +37,9 @@ export type StringValue =
   | `${number}`
   | `${number}${UnitAnyCase}`
   | `${number} ${UnitAnyCase}`;
+
+export type BackOffOptions = {
+  retries?: number;
+  delay?: number;
+  factor?: number;
+};

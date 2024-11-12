@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type NewsletterFormData, NewsletterFormSchema } from "@/lib/zod";
@@ -15,28 +14,35 @@ export default function NewsletterForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<NewsletterFormData>({
     resolver: zodResolver(NewsletterFormSchema),
     defaultValues: {
-      name: "",
+      fullName: "",
       email: "",
     },
   });
-
-  useEffect(() => {
-    reset({ name: "", email: "" });
-  }, [reset, isSubmitSuccessful]);
 
   const onValidFormSubmit: SubmitHandler<NewsletterFormData> = async (data) => {
     const formData = objectToFormData(data);
     const [error] = await safeAsync(SubscribeToNewsletter(formData));
     if (error) {
+      if (
+        error.message ===
+        'duplicate key value violates unique constraint "subscribers_email_unique"'
+      ) {
+        reset({ fullName: "", email: "" });
+        return toast.info("You're already subscribed!");
+      }
       return toast.error("Uh oh! Something went wrong.", {
-        description: "There was an issue subscribing. Please try again.",
+        description: "There was an issue. Please try again.",
       });
     }
-    toast.success("Successfully subscribed to the newsletter!");
+    reset({ fullName: "", email: "" });
+    toast.success("You've successfully subscribed to our newsletter!", {
+      description:
+        "Please check your email for a confirmation link to complete your subscription.",
+    });
   };
   return (
     <form
@@ -45,15 +51,15 @@ export default function NewsletterForm() {
     >
       <div className="space-y-1">
         <Input
-          {...register("name")}
+          {...register("fullName")}
           placeholder="First and Last Name"
           type="text"
           required
-          className={`${errors.name ? "border-destructive focus-visible:ring-0" : ""}`}
+          className={`${errors.fullName ? "border-destructive focus-visible:ring-0" : ""}`}
         />
-        {errors.name && (
+        {errors.fullName && (
           <span className="text-xs text-destructive">
-            {errors.name.message}
+            {errors.fullName.message}
           </span>
         )}
       </div>

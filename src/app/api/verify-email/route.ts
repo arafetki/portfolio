@@ -7,7 +7,7 @@ import {
   TokenExpiredError,
   verifyAndDecodeToken,
 } from "@/lib/jwt";
-import { retrieveSubscriber, updateSubscriber } from "@/server/db/query/subs";
+import { retrieveOne, update } from "@/server/db/query/subs";
 
 export async function GET(req: NextRequest) {
   try {
@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
       );
     }
     const { subId } = verifyAndDecodeToken<{ subId: string }>(token);
-    const sub = await retrieveSubscriber(subId);
+    const sub = await retrieveOne(subId);
     if (!sub) {
       return NextResponse.redirect(
         new URL("/?error=SUBSCRIBER_NOT_FOUND", req.nextUrl),
@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
         }
       );
     }
-    await updateSubscriber(subId, {
+    await update(subId, {
       verified: true,
       updatedAt: new Date(),
     });

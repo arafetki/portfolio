@@ -1,33 +1,42 @@
 "use server";
 
+import { resend } from "@/lib/resend";
 import { NewsletterFormSchema } from "@/lib/zod";
-import { insertSubscriber } from "../db/query/subs";
+import { insertOne, deleteOne } from "@/server/db/query/subs";
 import { generateToken } from "@/lib/jwt";
+import { TOKEN_EXPIRE_IN } from "@/config/constants";
+import { retryWithBackoff } from "@/lib/utils";
 
 export async function SubscribeToNewsletter(formData: FormData) {
   const data = Object.fromEntries(formData.entries());
 
-  try {
-    const parsedData = NewsletterFormSchema.parse(data);
+  const parsedData = NewsletterFormSchema.parse(data);
 
-    const [firstName, lastName] = parsedData.name.split(" ");
+  const [firstName, lastName] = parsedData.fullName.split(" ");
 
-    const response = await insertSubscriber({
-      email: parsedData.email,
-      firstName,
-      lastName,
-    });
+  const { subId } = await insertOne({
+    email: parsedData.email,
+    firstName,
+    lastName,
+  });
 
-    const payload = {
-      subId: response[0].subId,
-    };
+  const token = generateToken({ subId }, TOKEN_EXPIRE_IN);
+  const verifyEmailURL = `${process.env.NEXT_PUBLIC_SITE_URL}/api/verify-email?token=${token}`;
 
-    const token = generateToken(payload, "1h");
+  const response = await retryWithBackoff(
+    resend.emails.send({
+      from: "Acme <onboarding@resend.dev>",
+      to: [parsedData.email],
+      subject: "Confirm your Email",
+      html: `<p>confirmation link: <a href=${verifyEmailURL}>${verifyEmailURL}</a></p>`,
+    }),
+    {
+      retries: 4,
+    }
+  );
 
-    console.log("token: ", token);
-  } catch (error) {
-    console.error(error);
-    if (error instanceof Error) throw error;
-    throw new Error("Unexpected error happened during creating subscriber");
+  if (response.error) {
+    await deleteOne(subId);
+    throw new Error(response.error.message);
   }
 }
