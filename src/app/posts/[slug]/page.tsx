@@ -3,6 +3,12 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import { generateRssFeed } from "@/lib/rss";
 import Image from "next/image";
+// import SocialShare from "@/components/social-share";
+import { cn, formatDate } from "@/lib/utils";
+import Mdx from "@/components/mdx";
+import Link from "next/link";
+import { Icons } from "@/components/icons";
+import { buttonVariants } from "@/components/ui/button";
 
 type PostProps = {
   params: Promise<{
@@ -58,17 +64,51 @@ export default async function Post({ params }: PostProps) {
   if (!post) notFound();
   return (
     <div>
-      <div className="my-container">
-        <div className="space-y-2">
-          <h1>{post.title}</h1>
-          <Image
-            src={post.thumbnail}
-            alt={post.title}
-            height={600}
-            width={600}
-          />
+      <article className="mx-auto max-w-3xl p-6 lg:py-16">
+        <section className="space-y-4">
+          <div className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
+            <time dateTime={post.publishedDate.toISOString()}>
+              {formatDate(post.publishedDate)}
+            </time>
+          </div>
+          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+            {post.title}
+          </h1>
+          <p className="text-sm lg:text-base">{post.summary}</p>
+          <ul className="flex items-center gap-x-2">
+            {post.topics.map((topic, idx) => {
+              return (
+                <li
+                  key={topic + idx}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <Link
+                    href={`/blog/topics/${topic.toLowerCase()}`}
+                  >{`#${topic.toLowerCase()}`}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+        <Image
+          src={post.thumbnail}
+          alt={post.title}
+          width={9999}
+          height={9999}
+          className="mb-8 mt-12"
+        />
+        <Mdx code={post.mdx} />
+        <hr className="mt-12" />
+        <div className="flex justify-center py-6 lg:py-10">
+          <Link
+            href="/blog"
+            className={cn(buttonVariants({ variant: "ghost" }))}
+          >
+            <Icons.chevronLeft className="mr-2 size-4" />
+            See all posts
+          </Link>
         </div>
-      </div>
+      </article>
     </div>
   );
 }
