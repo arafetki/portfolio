@@ -1,6 +1,7 @@
 import { cn, formatDate } from "@/lib/utils";
 import type { Post } from "content-collections";
 import Link from "next/link";
+import Tags from "./tags";
 
 interface PostCardProps extends React.HTMLProps<HTMLElement> {
   post: Post;
@@ -25,11 +26,7 @@ export default function PostCard({ post, className, ...rest }: PostCardProps) {
       <p className="text-sm leading-relaxed tracking-tight text-muted-foreground sm:text-base md:text-lg">
         {post.summary}
       </p>
-      <ul className="flex gap-x-2">
-        {post.topics.map((topic, idx) => {
-          return <li key={topic + idx}>{`#${topic.toLowerCase()}`}</li>;
-        })}
-      </ul>
+      <Tags topics={post.topics} />
       <Link href={`/posts/${post.slug}`} className="absolute inset-0">
         <span className="sr-only">View Article</span>
       </Link>

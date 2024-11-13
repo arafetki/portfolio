@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Callout from "@/components/callout";
 import Protip from "@/components/protip";
+import CodeBlock from "@/components/code-block";
 import { cn } from "@/lib/utils";
 
 export const components: MDXComponents = {
@@ -13,7 +14,7 @@ export const components: MDXComponents = {
   blockquote: ({ className, ...props }) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
+        "mt-6 border-l-2 border-primary pl-6 italic [&>*]:text-muted-foreground [&>*]: font-medium",
         className
       )}
       {...props}
@@ -49,21 +50,10 @@ export const components: MDXComponents = {
       {...props}
     />
   ),
-  pre: ({ className, ...props }) => (
-    <pre
-      className={cn(
-        "my-6 px-2 py-4 overflow-x-auto rounded-lg bg-zinc-950 dark:bg-zinc-800/35",
-        className
-      )}
-      {...props}
-    />
-  ),
+  pre: (props) => <CodeBlock {...props} />,
   code: ({ className, ...props }) => (
     <code
-      className={cn(
-        "relative rounded px-[0.3rem] py-[0.2rem] font-mono text-xs sm:text-sm",
-        className
-      )}
+      className={cn("relative font-mono text-xs sm:text-sm", className)}
       {...props}
     />
   ),

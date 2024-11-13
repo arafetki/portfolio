@@ -8,6 +8,8 @@ import {
   ArrowUpRight,
   ChevronLeft,
   ChevronRight,
+  Clipboard,
+  ClipboardCheck,
 } from "lucide-react";
 
 export const Icons = {
@@ -55,4 +57,6 @@ export const Icons = {
   },
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+  clipboard: Clipboard,
+  clipboardCheck: ClipboardCheck,
 };

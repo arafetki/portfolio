@@ -7,7 +7,7 @@ import { Icons } from "@/components/icons";
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-200 dark:bg-zinc-900">
+    <footer className="bg-stone-200/90 dark:bg-stone-900/40">
       <div className="my-container px-6 py-8">
         <section className="flex flex-col gap-y-6 py-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="space-y-2 text-pretty text-sm">

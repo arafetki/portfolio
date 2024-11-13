@@ -7,7 +7,7 @@ summary: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis modi 
 author: "Arafet BenKilani"
 ---
 
-<Callout type="primary">
+<Callout>
   The text below is from the [Tailwind
   CSS](https://play.tailwindcss.com/uj1vGACRJA?layout=preview) docs. I copied it
   here to test the markdown styles. **Tailwind is awesome. You should use it.**
@@ -26,20 +26,34 @@ The `@tailwindcss/typography` plugin is our attempt to give you what you _actual
 
 It adds a new `prose` class that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document:
 
-```html
-<article class="prose">
-  <h1>Garlic bread with cheese: What the science tells us</h1>
-  <p>
-    For years parents have espoused the health benefits of eating garlic bread
-    with cheese to their children, with the food earning such an iconic status
-    in our culture that kids will often dress up as warm, cheesy loaf for
-    Halloween.
-  </p>
-  <p>
-    But a recent study shows that the celebrated appetizer may be linked to a
-    series of rabies cases springing up around the country.
-  </p>
-</article>
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  isAdmin?: boolean; // Optional property
+}
+
+function getUser(id: number): Promise<User> {
+  return fetch(`/api/users/${id}`).then((response) => {
+    if (!response.ok) throw new Error("User not found");
+    return response.json() as Promise<User>;
+  });
+}
+
+async function showUserInfo(userId: number): Promise<void> {
+  try {
+    const user = await getUser(userId);
+    console.log(`User: ${user.name} (${user.email})`);
+    if (user.isAdmin) {
+      console.log("This user has administrative privileges.");
+    }
+  } catch (error) {
+    console.error("Error fetching user:", error);
+  }
+}
+
+showUserInfo(1);
 ```
 
 ## GitHub Flavored Markdown

@@ -9,6 +9,7 @@ import Mdx from "@/components/mdx";
 import Link from "next/link";
 import { Icons } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
+import Tags from "@/components/tags";
 
 type PostProps = {
   params: Promise<{
@@ -74,21 +75,10 @@ export default async function Post({ params }: PostProps) {
           <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
             {post.title}
           </h1>
-          <p className="text-sm lg:text-base">{post.summary}</p>
-          <ul className="flex items-center gap-x-2">
-            {post.topics.map((topic, idx) => {
-              return (
-                <li
-                  key={topic + idx}
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  <Link
-                    href={`/blog/topics/${topic.toLowerCase()}`}
-                  >{`#${topic.toLowerCase()}`}</Link>
-                </li>
-              );
-            })}
-          </ul>
+          <p className="text-sm text-muted-foreground lg:text-base">
+            {post.summary}
+          </p>
+          <Tags topics={post.topics} />
         </section>
         <Image
           src={post.thumbnail}
