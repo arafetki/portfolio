@@ -10,6 +10,7 @@ import Link from "next/link";
 import { Icons } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
 import Tags from "@/components/tags";
+import SocialShare from "@/components/social-share";
 
 type PostProps = {
   params: Promise<{
@@ -69,16 +70,21 @@ export default async function Post({ params }: PostProps) {
         <section className="space-y-4">
           <div className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
             <time dateTime={post.publishedDate.toISOString()}>
-              {formatDate(post.publishedDate)}
+              {post.modifiedDate ? (
+                <span>Updated on: {formatDate(post.modifiedDate)}</span>
+              ) : (
+                <span>Published on: {formatDate(post.publishedDate)}</span>
+              )}
             </time>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight lg:text-6xl">
             {post.title}
           </h1>
           <p className="text-sm text-muted-foreground lg:text-base">
             {post.summary}
           </p>
           <Tags topics={post.topics} />
+          <SocialShare title={post.title} slug={post.slug} />
         </section>
         <Image
           src={post.thumbnail}

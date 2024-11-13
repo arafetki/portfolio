@@ -30,32 +30,35 @@ const links = [
 
 type SocialShareProps = {
   className?: string;
-  url: string;
+  slug: string;
   title: string;
   withTopBorder?: boolean;
 };
 
 export default function SocialShare({
   className,
-  url,
+  slug,
   title,
   withTopBorder = false,
 }: SocialShareProps) {
   return (
     <div
-      className={cn(
-        "safe-paddings flex items-center justify-between lg:justify-start lg:gap-x-5",
-        className,
-        {
-          "border-t border-muted-foreground pt-6": withTopBorder,
-        }
-      )}
+      className={cn("safe-paddings flex items-end gap-x-3", className, {
+        "border-t border-muted-foreground pt-6": withTopBorder,
+      })}
     >
-      <span className="text-lg leading-none text-muted-foreground">Share:</span>
-      <div className="flex shrink-0 gap-x-4">
+      <span className="font-medium uppercase leading-none text-muted-foreground">
+        Share:
+      </span>
+      <div className="flex shrink-0 gap-x-3">
         {links.map(({ icon: Icon, tag: Tag }, index) => (
-          <Tag className="group" url={url} title={title} key={index}>
-            <Icon className="size-5 fill-zinc-500 transition-colors duration-200 group-hover:fill-primary" />
+          <Tag
+            className="group"
+            url={`${process.env.NEXT_PUBLIC_SITE_URL}/posts/${slug}`}
+            title={title}
+            key={index}
+          >
+            <Icon className="size-[18px] fill-muted-foreground transition-colors duration-200 group-hover:fill-primary" />
           </Tag>
         ))}
       </div>
