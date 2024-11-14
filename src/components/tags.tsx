@@ -7,6 +7,7 @@ export default function Tags({ topics }: { topics: string[] }) {
         return (
           <li key={topic + idx} className="font-medium hover:text-primary">
             <Link
+              className="md:text-lg"
               href={`/blog/topics/${topic.toLowerCase()}`}
             >{`#${topic.toLowerCase()}`}</Link>
           </li>

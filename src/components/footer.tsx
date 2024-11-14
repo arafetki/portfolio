@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
           <NewsletterForm />
         </section>
-        <section className="flex flex-col-reverse gap-y-6 border-t border-zinc-400 pt-8 dark:border-zinc-700 sm:flex-row sm:items-center sm:justify-between">
+        <section className="flex flex-col-reverse gap-y-6 border-t border-stone-400 pt-8 dark:border-stone-700 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1 text-pretty text-sm tracking-wide text-muted-foreground">
             <p>
               © Copyright {new Date().getFullYear()}. {PROFILE.fullName}
@@ -41,7 +41,7 @@ export default function Footer() {
             <Link href="/rss.xml" target="_blank">
               <Icons.feed
                 strokeWidth={3}
-                className="size-6 text-zinc-500 hover:text-primary"
+                className="size-6 text-muted-foreground hover:text-primary"
               />
             </Link>
             <ToggleThemeButton />

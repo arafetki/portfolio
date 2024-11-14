@@ -8,6 +8,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 import "./globals.css";
+import ScrollTopButton from "@/components/scroll-top";
 
 const robotoFlexSans = Roboto_Flex({
   subsets: ["latin"],
@@ -53,6 +54,7 @@ export default function RootLayout({
           <Footer />
           <SpeedInsights />
           <Toaster richColors closeButton position="top-right" />
+          <ScrollTopButton />
         </Providers>
       </body>
     </html>

@@ -66,8 +66,8 @@ export default async function Post({ params }: PostProps) {
   if (!post) notFound();
   return (
     <div>
-      <article className="mx-auto max-w-3xl p-6 lg:py-16">
-        <section className="space-y-4">
+      <article className="mx-auto max-w-4xl p-6 lg:py-16">
+        <div className="space-y-4">
           <div className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
             <time dateTime={post.publishedDate.toISOString()}>
               {post.modifiedDate ? (
@@ -80,18 +80,18 @@ export default async function Post({ params }: PostProps) {
           <h1 className="text-4xl font-bold tracking-tight lg:text-6xl">
             {post.title}
           </h1>
-          <p className="text-sm text-muted-foreground lg:text-base">
+          <p className="text-sm text-muted-foreground md:text-base lg:text-lg">
             {post.summary}
           </p>
           <Tags topics={post.topics} />
-          <SocialShare title={post.title} slug={post.slug} />
-        </section>
+        </div>
+        <SocialShare title={post.title} slug={post.slug} className="mt-8" />
         <Image
           src={post.thumbnail}
           alt={post.title}
           width={9999}
           height={9999}
-          className="mb-8 mt-12"
+          className="my-8"
         />
         <Mdx code={post.mdx} />
         <hr className="mt-12" />

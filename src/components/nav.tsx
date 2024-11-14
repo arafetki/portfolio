@@ -26,10 +26,10 @@ export default function Navbar({
   const path = usePathname();
 
   return (
-    <nav className="z-50 mx-auto flex h-24 max-w-7xl items-center justify-between p-3">
+    <nav className="z-50 mx-auto flex h-24 max-w-7xl items-center justify-between p-6">
       <Logo closeMenu={closeMenu} />
       <div>
-        <ul className="hidden items-center gap-4 px-6 py-2 md:flex">
+        <ul className="hidden items-center gap-4 py-2 md:flex">
           {items.map((item) => {
             return (
               <li key={item.name}>

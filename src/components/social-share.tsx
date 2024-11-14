@@ -58,7 +58,7 @@ export default function SocialShare({
             title={title}
             key={index}
           >
-            <Icon className="size-[18px] fill-muted-foreground transition-colors duration-200 group-hover:fill-primary" />
+            <Icon className="size-5 fill-muted-foreground transition-colors duration-200 group-hover:fill-primary" />
           </Tag>
         ))}
       </div>
