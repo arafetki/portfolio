@@ -3,13 +3,11 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import { generateRssFeed } from "@/lib/rss";
 import Image from "next/image";
-// import SocialShare from "@/components/social-share";
 import { cn, formatDate } from "@/lib/utils";
 import Mdx from "@/components/mdx";
 import Link from "next/link";
 import { Icons } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
-import Tags from "@/components/tags";
 import SocialShare from "@/components/social-share";
 
 type PostProps = {
@@ -69,7 +67,10 @@ export default async function Post({ params }: PostProps) {
       <article className="mx-auto max-w-4xl p-6 lg:py-16">
         <div className="space-y-4">
           <div className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
-            <time dateTime={post.publishedDate.toISOString()}>
+            <time
+              dateTime={post.publishedDate.toISOString()}
+              className="text-sm uppercase"
+            >
               {post.modifiedDate ? (
                 <span>Updated on: {formatDate(post.modifiedDate)}</span>
               ) : (
@@ -83,7 +84,23 @@ export default async function Post({ params }: PostProps) {
           <p className="text-sm text-muted-foreground md:text-base lg:text-lg">
             {post.summary}
           </p>
-          <Tags topics={post.topics} />
+          <ul className="flex items-center gap-x-2">
+            {post.topics.map((topic, idx) => {
+              return (
+                <li
+                  key={topic + idx}
+                  className="transition-all duration-500 hover:-translate-y-1"
+                >
+                  <Link
+                    href={`/blog/topics/${topic}`}
+                    className="rounded-full bg-primary/25 px-4 py-2 text-sm font-medium uppercase text-primary"
+                  >
+                    {topic}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
         <SocialShare title={post.title} slug={post.slug} className="mt-8" />
         <Image

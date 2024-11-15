@@ -8,7 +8,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 import "./globals.css";
-import ScrollTopButton from "@/components/scroll-top";
+import ScrollTopButton from "@/components/scroll-top-button";
 
 const robotoFlexSans = Roboto_Flex({
   subsets: ["latin"],

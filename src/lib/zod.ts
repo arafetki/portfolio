@@ -9,3 +9,5 @@ export const NewsletterFormSchema = z.object({
 });
 
 export type NewsletterFormData = z.infer<typeof NewsletterFormSchema>;
+
+export const TurnstileTokenSchema = z.string().min(1);
