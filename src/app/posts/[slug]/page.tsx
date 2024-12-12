@@ -69,7 +69,7 @@ export default async function Post({ params }: PostProps) {
           <div className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
             <time
               dateTime={post.publishedDate.toISOString()}
-              className="text-sm uppercase"
+              className="font-mono text-xs uppercase"
             >
               {post.modifiedDate ? (
                 <span>Updated on: {formatDate(post.modifiedDate)}</span>

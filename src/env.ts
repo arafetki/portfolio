@@ -9,8 +9,6 @@ export const env = createEnv({
       .default("development"),
     RESEND_API_KEY: z.string().min(1),
     RESEND_AUDIENCE_ID: z.string().min(1),
-    DATABASE_URL: z.string().min(1).url(),
-    JWT_SECRET_KEY: z.string().min(1),
     TURNSTILE_SECRET_KEY: z.string().min(1),
   },
   client: {
@@ -20,8 +18,6 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID,
-    DATABASE_URL: process.env.DATABASE_URL,
-    JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
     NEXT_PUBLIC_TURNSTILE_SITE_KEY: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
     TURNSTILE_SECRET_KEY: process.env.TURNSTILE_SECRET_KEY,
   },

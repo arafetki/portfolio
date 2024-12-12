@@ -19,7 +19,7 @@ export default function PostCard({ post, className, ...rest }: PostCardProps) {
       <h1 className="text-3xl font-bold">{post.title}</h1>
       <time
         dateTime={post.publishedDate.toISOString()}
-        className="block text-sm md:text-base"
+        className="block font-mono text-sm"
       >
         Published on {formatDate(post.publishedDate)}
       </time>

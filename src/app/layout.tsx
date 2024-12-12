@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto_Flex, Roboto_Mono } from "next/font/google";
+import { Raleway, Roboto_Mono } from "next/font/google";
 import { SITE_METADATA } from "@/config";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
@@ -10,10 +10,10 @@ import Footer from "@/components/footer";
 import "./globals.css";
 import ScrollTopButton from "@/components/scroll-top-button";
 
-const robotoFlexSans = Roboto_Flex({
+const ralewaySans = Raleway({
   subsets: ["latin"],
   style: ["normal"],
-  variable: "--font-roboto-flex-sans",
+  variable: "--font-raleway-sans",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 const robotoMono = Roboto_Mono({
@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${robotoFlexSans.variable} ${robotoMono.variable} flex min-h-screen flex-col font-sans antialiased`}
+        className={`${ralewaySans.variable} ${robotoMono.variable} flex min-h-screen flex-col font-sans antialiased`}
       >
         <Providers>
           <Header />

@@ -60,7 +60,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-roboto-flex-sans)", "sans-serif"],
+        sans: ["var(--font-raleway-sans)", "sans-serif"],
         mono: ["var(--font-roboto-mono)"],
       },
       keyframes: {

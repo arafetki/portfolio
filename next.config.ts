@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_SITE_URL: env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "http://localhost:3001",
+      : "http://localhost:3000",
   },
 };
 

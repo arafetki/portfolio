@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PROFILE } from "@/config";
-// import { Icons } from "@/components/icons";
+import Image from "next/image";
 
 type LogoProps = {
   closeMenu: () => void;
@@ -10,11 +9,8 @@ type LogoProps = {
 
 export default function Logo({ closeMenu }: LogoProps) {
   return (
-    <Link href="/" onClick={closeMenu} className="flex items-center">
-      {/* <Icons.bulb strokeWidth={1} size={50} className="text-primary" /> */}
-      <h1 className="bg-gradient-green-primary bg-clip-text font-bold text-transparent md:text-lg lg:text-xl">
-        {PROFILE.fullName}
-      </h1>
+    <Link href="/" onClick={closeMenu}>
+      <Image src="/logo.png" alt="Logo" width={25} height={25} />
     </Link>
   );
 }
