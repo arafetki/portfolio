@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { env } from "@/env";
 import { TurnstileTokenSchema } from "@/lib/zod";
-import { retryWithBackoff } from "@/lib/utils";
+import { safeAsync } from "@/lib/utils";
 import { status } from "http-status";
 import { ZodError } from "zod";
 
@@ -13,18 +13,17 @@ export async function POST(req: NextRequest) {
     const { token } = await req.json();
     const parsedToken = TurnstileTokenSchema.parse(token);
 
-    const res = await retryWithBackoff(
+    const [error, res] = await safeAsync(
       fetch(verifyEndpoint, {
         method: "POST",
         body: `secret=${encodeURIComponent(env.TURNSTILE_SECRET_KEY)}&response=${encodeURIComponent(parsedToken)}`,
         headers: {
           "content-type": "application/x-www-form-urlencoded",
         },
-      }),
-      {
-        retries: 4,
-      }
+      })
     );
+
+    if (error) throw new Error(error.message);
 
     const data = await res.json();
 
