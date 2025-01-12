@@ -17,6 +17,6 @@ export default [
     "next/core-web-vitals",
     "next/typescript",
     "plugin:tailwindcss/recommended",
-    "prettier"
+    "plugin:prettier/recommended",
   ),
 ];

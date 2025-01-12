@@ -17,7 +17,7 @@ export default function ScrollTopButton() {
       variant="ghost"
       className={cn(
         "fixed bottom-4 right-4 lg:bottom-6 lg:right-6",
-        visible ? "flex" : "hidden"
+        visible ? "flex" : "hidden",
       )}
     >
       <Icons.arrowUp className="!size-5" />

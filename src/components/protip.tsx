@@ -15,7 +15,7 @@ export default function Protip({
     <div
       className={cn(
         "flex flex-col p-4 rounded-md bg-primary/10 hover:bg-primary/20 dark:bg-secondary/40 dark:hover:bg-secondary/60",
-        className
+        className,
       )}
       {...rest}
     >

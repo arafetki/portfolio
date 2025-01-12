@@ -21,7 +21,7 @@ export default function Callout({
           "border-l-yellow-700": type === "warning",
           "border-l-destructive": type === "danger",
         },
-        className
+        className,
       )}
       {...rest}
     >

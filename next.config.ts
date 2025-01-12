@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import { withContentCollections } from "@content-collections/next";
 import { env } from "@/env";
 
-const nextConfig: NextConfig = {
+const nextConfig: Partial<NextConfig> = {
   reactStrictMode: true,
   async redirects() {
     return [

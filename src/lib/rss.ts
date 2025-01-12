@@ -20,7 +20,7 @@ export function generateRssFeed(posts: Array<Post>) {
       description: post.summary,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/posts/${post.slug}`,
       date: post.publishedDate,
-    })
+    }),
   );
 
   try {

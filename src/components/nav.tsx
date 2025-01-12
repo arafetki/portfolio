@@ -38,8 +38,8 @@ export default function Navbar({
                   className={cn(
                     "text-muted-foreground p-3 transition-all ease-linear",
                     path === item.href
-                      ? "text-primary border-b-2 border-primary"
-                      : "rounded-sm hover:bg-accent hover:text-accent-foreground"
+                      ? "border-b-2 border-primary"
+                      : "rounded-sm hover:bg-accent hover:text-accent-foreground",
                   )}
                 >
                   {item.name}
