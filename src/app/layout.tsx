@@ -1,21 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Raleway, Roboto_Mono } from "next/font/google";
+import { Raleway, Roboto, Roboto_Mono } from "next/font/google";
 import { SITE_METADATA } from "@/config";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/providers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-
-import "./globals.css";
 import ScrollTopButton from "@/components/scroll-top-button";
 
-const ralewaySans = Raleway({
+import "./globals.css";
+
+const raleway = Raleway({
   subsets: ["latin"],
   style: ["normal"],
   variable: "--font-raleway-sans",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  style: ["italic", "normal"],
+  variable: "--font-roboto",
+  weight: ["100", "300", "400", "500", "700", "900"],
+});
+
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
   style: ["italic", "normal"],
@@ -46,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${ralewaySans.variable} ${robotoMono.variable} flex min-h-screen flex-col font-sans antialiased`}
+        className={`${roboto.variable} ${raleway.variable} ${robotoMono.variable} flex min-h-screen flex-col font-roboto antialiased`}
       >
         <Providers>
           <Header />
