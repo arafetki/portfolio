@@ -15,7 +15,7 @@ const posts = defineCollection({
     summary: z.string(),
     publishedDate: z.coerce.date(),
     modifiedDate: z.coerce.date().nullish(),
-    thumbnail: z.string().optional().default(`/default_thumbnail.png`),
+    thumbnail: z.string(),
   }),
   transform: async (doc, ctx) => {
     const mdx = await compileMDX(ctx, doc, {

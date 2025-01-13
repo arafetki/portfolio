@@ -4,21 +4,11 @@ import { env } from "@/env";
 
 const nextConfig: Partial<NextConfig> = {
   reactStrictMode: true,
-  async redirects() {
-    return [
-      {
-        source: "/posts",
-        destination: "/blog",
-        permanent: true,
-      },
-    ];
-  },
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "utfs.io",
-        pathname: "/a/ek8hyk1349/*",
+        hostname: "d7ocqc2yie.ufs.sh",
       },
     ],
   },
