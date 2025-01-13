@@ -6,19 +6,27 @@ import { cn } from "@/lib/utils";
 import { useScrollTop } from "@/hooks/useScrollTop";
 import { useScrollVisible } from "@/hooks/useScrollVisible";
 
-export default function ScrollTopButton() {
+type ScrollTopProps = {
+  visibleHeight?: number;
+  position?: "bottom-right" | "bottom-left";
+};
+
+export default function ScrollTop({
+  visibleHeight = 300,
+  position = "bottom-right",
+}: ScrollTopProps) {
   const handleScrollTop = useScrollTop({ behavior: "smooth" });
-  const visible = useScrollVisible();
+  const visible = useScrollVisible(visibleHeight);
 
   return (
     <Button
       onClick={handleScrollTop}
       size="icon"
       variant="ghost"
-      className={cn(
-        "fixed bottom-4 right-4 lg:bottom-6 lg:right-6",
-        visible ? "flex" : "hidden",
-      )}
+      className={cn("fixed rounded-full", visible ? "flex" : "hidden", {
+        "bottom-5 right-5": position === "bottom-right",
+        "bottom-5 left-5": position === "bottom-left",
+      })}
     >
       <Icons.arrowUp className="!size-5" />
     </Button>

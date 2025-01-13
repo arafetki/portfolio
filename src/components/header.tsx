@@ -17,7 +17,7 @@ export default function Header() {
   }, [showMobileMenu]);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background">
+    <header className="sticky top-0 z-50 w-full">
       <Navbar
         items={NAV_ITEMS}
         showMobileMenu={showMobileMenu}

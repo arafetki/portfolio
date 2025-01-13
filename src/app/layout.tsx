@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Raleway, Roboto, Roboto_Mono } from "next/font/google";
-import { SITE_METADATA } from "@/config";
+import { METADATA } from "@/config";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
-import Providers from "@/providers";
+import Providers from "@/components/providers";
 import Header from "@/components/header";
-import Footer from "@/components/footer";
-import ScrollTopButton from "@/components/scroll-top-button";
+import ScrollTop from "@/components/scrollTop";
 
 import "./globals.css";
 
@@ -33,10 +32,10 @@ const robotoMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: SITE_METADATA.title,
-    template: `%s | ${SITE_METADATA.title}`,
+    default: METADATA.title,
+    template: `%s | ${METADATA.title}`,
   },
-  description: SITE_METADATA.description,
+  description: METADATA.description,
 };
 
 export const viewport: Viewport = {
@@ -59,10 +58,9 @@ export default function RootLayout({
         <Providers>
           <Header />
           <main className="grow">{children}</main>
-          <Footer />
           <SpeedInsights />
           <Toaster richColors closeButton position="top-right" />
-          <ScrollTopButton />
+          <ScrollTop visibleHeight={300} position="bottom-right" />
         </Providers>
       </body>
     </html>

@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About me",
+  title: "About",
 };
 
-export default function Page() {
+export default function About() {
   return (
-    <div>
-      <div className="my-container">
-        <h1>About Page</h1>
-      </div>
+    <div className="mx-auto max-w-7xl p-6">
+      <h1>About Page</h1>
     </div>
   );
 }

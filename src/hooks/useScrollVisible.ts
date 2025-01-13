@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useScrollVisible(position: number = 300) {
+export function useScrollVisible(position: number) {
   const [visible, setVisible] = useState<boolean>(false);
   useEffect(() => {
     const toggleVisible = () => {

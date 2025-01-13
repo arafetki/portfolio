@@ -1,4 +1,4 @@
-export const SITE_METADATA = {
+export const METADATA = {
   title: "Arafet BenKilani",
   description: "Personal portfolio showcasing my offered services and writeups",
 };
@@ -15,9 +15,5 @@ export const NAV_ITEMS = [
   {
     name: "Blog",
     href: "/blog",
-  },
-  {
-    name: "Contact",
-    href: "/contact",
   },
 ];
