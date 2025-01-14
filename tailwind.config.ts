@@ -13,7 +13,10 @@ const config: Config = {
         center: true,
       },
       colors: {
-        background: "hsl(var(--background))",
+        background: {
+          primary: "hsl(var(--background-primary))",
+          secondary: "hsl(var(--background-secondary))",
+        },
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -64,21 +67,9 @@ const config: Config = {
         roboto: ["var(--font-roboto)", "sans-serif"],
         mono: ["var(--font-roboto-mono)", "monospace"],
       },
-      keyframes: {
-        avatar: {
-          "0%": {
-            borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
-          },
-          "50%": {
-            borderRadius: "30% 60% 70% 40%/50% 60% 30% 60%",
-          },
-          "100%": {
-            borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
-          },
-        },
-      },
-      animation: {
-        avatar: "avatar 6s ease-in-out infinite",
+      backgroundImage: {
+        "custom-gradient":
+          "linear-gradient(200deg, hsl(var(--background-primary)), hsl(var(--background-secondary)))",
       },
     },
   },

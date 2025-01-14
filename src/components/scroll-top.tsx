@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { cn } from "@/lib/utils";
-import { useScrollTop } from "@/hooks/useScrollTop";
+import { useScroll } from "@/hooks/useScroll";
 import { useScrollVisible } from "@/hooks/useScrollVisible";
 
 type ScrollTopProps = {
@@ -15,12 +15,12 @@ export default function ScrollTop({
   visibleHeight = 300,
   position = "bottom-right",
 }: ScrollTopProps) {
-  const handleScrollTop = useScrollTop({ behavior: "smooth" });
+  const handleScroll = useScroll({ top: 0, behavior: "smooth" });
   const visible = useScrollVisible(visibleHeight);
 
   return (
     <Button
-      onClick={handleScrollTop}
+      onClick={handleScroll}
       size="icon"
       variant="ghost"
       className={cn("fixed rounded-full", visible ? "flex" : "hidden", {

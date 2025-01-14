@@ -10,6 +10,7 @@ import {
   Clipboard,
   ClipboardCheck,
   ArrowUp,
+  MoveDown,
   LoaderCircle,
 } from "lucide-react";
 
@@ -60,5 +61,6 @@ export const Icons = {
   clipboard: Clipboard,
   clipboardCheck: ClipboardCheck,
   arrowUp: ArrowUp,
+  arrowdown: MoveDown,
   loader: LoaderCircle,
 };
