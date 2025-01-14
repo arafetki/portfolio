@@ -13,6 +13,8 @@ export function useScrollVisible(position: number) {
       }
     };
 
+    toggleVisible();
+
     window.addEventListener("scroll", toggleVisible, { passive: true });
 
     return () => window.removeEventListener("scroll", toggleVisible);

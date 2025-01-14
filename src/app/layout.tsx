@@ -5,6 +5,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/components/providers";
 import ScrollTop from "@/components/scroll-top";
+import Header from "@/components/header";
+import Navbar from "@/components/nav";
 
 import "./globals.css";
 
@@ -52,14 +54,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${roboto.variable} ${raleway.variable} ${robotoMono.variable} flex min-h-screen flex-col font-roboto antialiased`}
+        className={`${roboto.variable} ${raleway.variable} ${robotoMono.variable} min-h-screen font-roboto antialiased`}
       >
         <Providers>
-          {/* <Header /> */}
-          <main className="grow">{children}</main>
+          <Header />
+          <Navbar />
+          <main>{children}</main>
           <SpeedInsights />
           <Toaster richColors closeButton position="top-right" />
-          <ScrollTop visibleHeight={300} position="bottom-right" />
+          <ScrollTop visibleHeight={300} />
         </Providers>
       </body>
     </html>

@@ -21,7 +21,7 @@ export default function ScrollDown({
       className={cn("flex gap-x-1", className)}
       {...props}
     >
-      <p className="text-muted-foreground">Scroll</p>
+      <span className="uppercase text-muted-foreground">Scroll down</span>
       <Icons.arrowdown className="!size-6 animate-bounce" />
     </button>
   );

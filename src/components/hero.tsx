@@ -1,7 +1,7 @@
 "use client";
 
-import ScrollDown from "@/components/scroll-down";
 import { useEffect, useState } from "react";
+import ScrollDown from "@/components/scroll-down";
 
 export default function Hero() {
   const [windowHeight, setWindowHeight] = useState(0);
@@ -12,11 +12,12 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative h-screen">
-      <aside className="absolute left-0 top-1/2 hidden h-60 w-2 -translate-y-1/2 bg-rose-700 lg:flex"></aside>
-      <div className="flex h-full flex-col justify-center gap-y-8 p-6">
-        <div className="animate-wiggle mx-auto size-[150px] bg-[url('/me.jpg')] bg-cover bg-center bg-no-repeat shadow-[inset_0_0_0_7px] shadow-secondary/80 md:size-[200px]" />
-        <div className="mx-auto max-w-4xl space-y-2 text-center">
+    <section id="hero" className="grid h-[calc(100vh-5rem)] content-evenly p-6">
+      <div className="flex h-full flex-col items-center justify-center gap-8">
+        <figure className="animate-wiggle size-[150px] rounded-full bg-[url('/me.jpg')] bg-cover bg-center bg-no-repeat shadow-[inset_0_0_0_7px] shadow-secondary/80 md:size-[200px]">
+          <figcaption className="sr-only">Arafet BenKilani</figcaption>
+        </figure>
+        <div className="max-w-4xl space-y-4 text-center">
           <h2 className="text-xs uppercase tracking-wide sm:text-sm md:text-base">
             Arafet BenKilani
           </h2>
@@ -24,16 +25,13 @@ export default function Hero() {
             ICT Engineer & Self-taught Software Developer
           </h1>
           <p className="text-sm leading-relaxed text-muted-foreground md:text-lg lg:text-xl [&>strong]:text-foreground">
-            A recent Engineering Graduate based in Tunisia who is who passionate
-            about <strong>Cloud</strong>, <strong>DevSecOps</strong> and{" "}
+            A recent Engineering Graduate based in Tunisia who is passionate
+            about <strong>Cloud</strong>, <strong>DevSecOps</strong>, and{" "}
             <strong>Fullstack</strong> development.
           </p>
         </div>
       </div>
-      <ScrollDown
-        to={windowHeight}
-        className="absolute bottom-14 left-1/2 -translate-x-1/2"
-      />
+      <ScrollDown to={windowHeight} className="mx-auto " />
     </section>
   );
 }

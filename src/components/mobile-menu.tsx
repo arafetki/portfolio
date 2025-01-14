@@ -1,5 +1,7 @@
 "use client";
 
+import { Icons } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 type MobileMenuProps = {
@@ -7,26 +9,87 @@ type MobileMenuProps = {
     name: string;
     href: string;
   }[];
+  showMobileMenu: boolean;
   closeMenu: () => void;
 };
 
-export default function MobileMenu({ items, closeMenu }: MobileMenuProps) {
+export default function MobileMenu({
+  items,
+  closeMenu,
+  showMobileMenu,
+}: MobileMenuProps) {
   return (
-    <div className="pointer-events-none fixed inset-0 top-24 h-[calc(100vh-6rem)] overflow-auto px-5 pb-32 shadow-md duration-300 animate-in slide-in-from-bottom-80 md:hidden">
-      <div className="pointer-events-auto rounded-md bg-background p-3 text-popover-foreground drop-shadow-lg">
-        <nav className="grid grid-flow-row auto-rows-max gap-3 text-sm">
+    <div
+      className={`pointer-events-auto fixed left-0 top-0 -z-10 size-full overflow-auto bg-background duration-500 md:hidden ${
+        showMobileMenu
+          ? "animate-in slide-in-from-right"
+          : "animate-out slide-out-to-right"
+      }`}
+    >
+      <nav className="relative flex h-full flex-col items-center justify-center">
+        <ul className="flex flex-col items-center gap-6 text-2xl">
           {items.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               onClick={closeMenu}
-              className="flex w-full items-center rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent"
+              className="active:text-primary"
             >
               {item.name}
             </Link>
           ))}
-        </nav>
-      </div>
+        </ul>
+        <ul className="absolute bottom-32 flex items-center gap-4">
+          <li>
+            <Button
+              variant="outline"
+              size="icon"
+              className="size-9 rounded-full border-muted-foreground"
+              asChild
+            >
+              <Link
+                href="https://github.com/arafetki"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icons.github className="!size-6 fill-muted-foreground hover:fill-primary" />
+              </Link>
+            </Button>
+          </li>
+          <li>
+            <Button
+              variant="outline"
+              size="icon"
+              className="size-9 rounded-full border-muted-foreground"
+              asChild
+            >
+              <Link
+                href="https://www.linkedin.com/in/arafet-ben-kilani"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icons.linkedin className="!size-6 fill-muted-foreground hover:fill-primary" />
+              </Link>
+            </Button>
+          </li>
+          <li>
+            <Button
+              variant="outline"
+              size="icon"
+              className="size-9 rounded-full border-muted-foreground"
+              asChild
+            >
+              <Link
+                href="https://www.reddit.com/user/arfoutbenk"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icons.reddit className="!size-6 fill-muted-foreground hover:fill-primary" />
+              </Link>
+            </Button>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
