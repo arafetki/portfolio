@@ -9,22 +9,13 @@ type MobileMenuProps = {
     name: string;
     href: string;
   }[];
-  showMobileMenu: boolean;
   closeMenu: () => void;
 };
 
-export default function MobileMenu({
-  items,
-  closeMenu,
-  showMobileMenu,
-}: MobileMenuProps) {
+export default function MobileMenu({ items, closeMenu }: MobileMenuProps) {
   return (
     <div
-      className={`pointer-events-auto fixed left-0 top-0 -z-10 size-full overflow-auto bg-background duration-500 md:hidden ${
-        showMobileMenu
-          ? "animate-in slide-in-from-right"
-          : "animate-out slide-out-to-right"
-      }`}
+      className={`pointer-events-auto fixed left-0 top-0 -z-10 size-full overflow-auto bg-background duration-500 animate-in slide-in-from-right md:hidden`}
     >
       <nav className="relative flex h-full flex-col items-center justify-center">
         <ul className="flex flex-col items-center gap-6 text-2xl">
@@ -33,7 +24,7 @@ export default function MobileMenu({
               key={item.name}
               href={item.href}
               onClick={closeMenu}
-              className="active:text-primary"
+              className="motion-preset-fade motion-delay-300 active:text-primary"
             >
               {item.name}
             </Link>

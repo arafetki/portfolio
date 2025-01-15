@@ -14,6 +14,6 @@ export const NAV_ITEMS = [
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "mailto:mr.arafetk@gmail.com",
   },
 ];

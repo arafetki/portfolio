@@ -11,7 +11,10 @@ export default function Navbar() {
       <Link href="/blog" className="fixed bottom-8 right-8">
         Blog
       </Link>
-      <Link href="/contact" className="fixed bottom-8 left-8">
+      <Link
+        href="mailto:mr.arafetk@gmail.com"
+        className="fixed bottom-8 left-8"
+      >
         Contact
       </Link>
     </nav>

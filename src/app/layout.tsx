@@ -9,6 +9,7 @@ import Header from "@/components/header";
 import Navbar from "@/components/nav";
 
 import "./globals.css";
+import SideBar from "@/components/sidebar";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -59,6 +60,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <Navbar />
+          <SideBar />
           <main>{children}</main>
           <SpeedInsights />
           <Toaster richColors closeButton position="top-right" />
