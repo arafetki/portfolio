@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
+import Container from "@/components/container";
+import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About",
+    title: "About",
 };
 
 export default function About() {
-  return (
-    <div className="mx-auto max-w-7xl p-8">
-      <h1>About Page</h1>
-    </div>
-  );
+    return (
+        <Container>
+            <h1 className="font-medium text-3xl">Under Construction</h1>
+        </Container>
+    );
 }
