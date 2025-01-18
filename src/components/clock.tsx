@@ -5,16 +5,14 @@ import { useEffect, useState } from "react";
 
 interface ClockProps extends React.HTMLAttributes<HTMLTimeElement> {
     timezone: string;
-};
+}
 
-export default function Clock({timezone,...props}: ClockProps) {
-    const [time, setTime] = useState<string>(()=>formatInTimeZone(
-            new Date(),
-            timezone,
-            "HH:mm zzz"
-        ));
+export default function Clock({ timezone, ...props }: ClockProps) {
+    const [time, setTime] = useState<string>(() =>
+        formatInTimeZone(new Date(), timezone, "HH:mm zzz")
+    );
 
-    useEffect(()=>{
+    useEffect(() => {
         const updateTime = () => {
             const formatedTime = formatInTimeZone(
                 new Date(),
@@ -26,10 +24,7 @@ export default function Clock({timezone,...props}: ClockProps) {
         const interval = setInterval(updateTime, 60000);
 
         return () => clearInterval(interval);
-    },[timezone])
+    }, [timezone]);
 
-    return (
-        <time dateTime={time} {...props}>{time}</time>
-    );
-
+    return <time {...props}>{time}</time>;
 }
