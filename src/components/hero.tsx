@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <section className="py-8 space-y-20 motion-preset-blur-down motion-duration-1500">
+        <section className="py-8 space-y-20 motion-preset-blur-down motion-duration-1000">
             <div className="flex flex-col lg:flex-row items-center gap-10">
                 <div className="order-2 lg:order-1 space-y-10 max-w-2xl">
                     <div className="space-y-2">
@@ -35,28 +35,21 @@ export default function Hero() {
                         who loves to build amazing things with code
                     </p>
                     <div className="flex gap-4">
-                        <button>
-                            <Link
-                                href="/about"
-                                className="px-4 py-3 rounded-md ring-offset-background border border-foreground shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(255_255_255_/_40%)] hover:bg-secondary"
-                            >
-                                Know more
-                                <ChevronRight
-                                    size={22}
-                                    className="inline-block"
-                                />
-                            </Link>
-                        </button>
-                        <button>
-                            <Link
-                                href="https://wa.me/21620714894"
-                                className="px-4 py-3 rounded-md ring-offset-background border border-foreground shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(255_255_255_/_40%)] bg-yellow-200 text-primary-foreground hover:bg-secondary hover:text-foreground"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Get in touch
-                            </Link>
-                        </button>
+                        <Link
+                            href="/about"
+                            className="px-4 py-3 rounded-md ring-offset-background border border-foreground shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(255_255_255_/_40%)] hover:bg-secondary"
+                        >
+                            Know more
+                            <ChevronRight size={22} className="inline-block" />
+                        </Link>
+                        <Link
+                            href="https://wa.me/21620714894"
+                            className="px-4 py-3 rounded-md ring-offset-background border border-foreground shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(255_255_255_/_40%)] bg-yellow-200 text-primary-foreground hover:bg-secondary hover:text-foreground"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Get in touch
+                        </Link>
                     </div>
                     <div className="pt-8 space-y-3">
                         <h3 className="text-muted-foreground">

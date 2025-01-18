@@ -70,11 +70,7 @@ export const BackgroundBeamsWithCollision = ({
     return (
         <div
             ref={parentRef}
-            className={cn(
-                "size-full relative overflow-hidden",
-                // h-screen if you want bigger
-                className
-            )}
+            className={cn("size-full relative overflow-hidden", className)}
         >
             {beams.map((beam) => (
                 <CollisionMechanism

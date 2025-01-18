@@ -3,6 +3,7 @@ import { Rubik, Geist_Mono } from "next/font/google";
 import Providers from "@/components/providers";
 import config from "@/config";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { MobileMenuProvider } from "@/contexts/mobile-menu";
 import MobileMenu from "@/components/mobile-menu";
 
@@ -50,7 +51,8 @@ export default function RootLayout({
                         <Header />
                         <MobileMenu />
                     </MobileMenuProvider>
-                    <main>{children}</main>
+                    <main className="grow">{children}</main>
+                    <Footer />
                 </Providers>
             </body>
         </html>

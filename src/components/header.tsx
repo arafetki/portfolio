@@ -13,7 +13,7 @@ export default function Header() {
     return (
         <header
             className={`sticky top-0 z-50 bg-background ${
-                showMobileMenu && "transition-colors duration-500"
+                showMobileMenu && "transition-colors duration-300"
             }`}
         >
             <Container className="flex justify-between items-center">

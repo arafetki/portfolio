@@ -25,7 +25,7 @@ export default function MobileMenu() {
     return (
         <nav
             className={cn(
-                "fixed inset-0 z-10 h-screen bg-background overflow-auto transition-all duration-500",
+                "fixed inset-0 z-10 h-screen bg-background overflow-auto transition-all duration-300",
                 showMobileMenu
                     ? "opacity-100 translate-x-0 pointer-events-auto"
                     : "opacity-0 translate-x-full pointer-events-none"

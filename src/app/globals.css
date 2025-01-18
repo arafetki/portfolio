@@ -2,69 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
-  :root {
-    --color-background: #fafafa;
-    --color-foreground: #151515;
-    --color-primary: #ffcd42;
-    --color-primary-foreground: #09090b;
-    --color-secondary: #e7e5e4;
-    --color-success: #12a150;
-    --color-danger: #b91c1c;
-    --color-warning: #f5a524;
-    --color-muted: #f2f2f3;
-    --color-muted-foreground: #89898a;
-    --color-accent: #f2f2f3;
-    --color-accent-foreground: #18181b;
-    --color-border: #e4e4e7;
-    --color-ring: #006FEE;
-    --color-card: #f4f4f5;
-    --color-card-foreground: #09090b;
-
-  }
-  .dark {
-    --color-background: #151515;
-    --color-foreground: #fafafa;
-    --color-primary: #ffcd42;
-    --color-primary-foreground: #09090b;
-    --color-secondary: #202022;
-    --color-success: #12a150;
-    --color-danger: #b91c1c;
-    --color-warning: #f5a524;
-    --color-muted: #262626;
-    --color-muted-foreground: #89898a;
-    --color-accent: #292524;
-    --color-accent-foreground: #fafafa;
-    --color-border: #252527;
-    --color-ring: #006FEE;
-    --color-card: #18181b;
-    --color-card-foreground: #fafafa;
-  }
-  body {
-    @apply bg-background text-foreground min-h-screen;
-  }
-  * {
-    @apply border-border;
-  }
+    :root {
+        --color-background: #fafafa;
+        --color-foreground: #151515;
+        --color-primary: #ffcd42;
+        --color-primary-foreground: #09090b;
+        --color-secondary: #e7e5e4;
+        --color-success: #12a150;
+        --color-danger: #b91c1c;
+        --color-warning: #f5a524;
+        --color-muted: #f2f2f3;
+        --color-muted-foreground: #89898a;
+        --color-accent: #f2f2f3;
+        --color-accent-foreground: #18181b;
+        --color-border: #e4e4e7;
+        --color-ring: #006fee;
+        --color-card: #f4f4f5;
+        --color-card-foreground: #09090b;
+    }
+    .dark {
+        --color-background: #151515;
+        --color-foreground: #fafafa;
+        --color-primary: #ffcd42;
+        --color-primary-foreground: #09090b;
+        --color-secondary: #202022;
+        --color-success: #12a150;
+        --color-danger: #b91c1c;
+        --color-warning: #f5a524;
+        --color-muted: #262626;
+        --color-muted-foreground: #89898a;
+        --color-accent: #292524;
+        --color-accent-foreground: #fafafa;
+        --color-border: #252527;
+        --color-ring: #006fee;
+        --color-card: #18181b;
+        --color-card-foreground: #fafafa;
+    }
+    body {
+        @apply flex flex-col bg-background text-foreground min-h-screen;
+    }
+    * {
+        @apply border-border;
+    }
 }
 
 @layer utilities {
-  @keyframes wiggle {
-    0% {
-      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    @keyframes wiggle {
+        0% {
+            border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+        }
+        50% {
+            border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+        }
+        100% {
+            border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+        }
     }
-    50% {
-      border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-    }
-    100%{
-      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-    }
-  }
 
-  .animate-wiggle {
-    animation: wiggle 6s ease-in-out infinite;
-  }
-
+    .animate-wiggle {
+        animation: wiggle 6s ease-in-out infinite;
+    }
 }
