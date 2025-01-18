@@ -49,8 +49,10 @@ export default function Hero() {
                         </button>
                         <button>
                             <Link
-                                href="/about"
+                                href="https://wa.me/21620714894"
                                 className="px-4 py-3 rounded-md ring-offset-background border border-foreground shadow-[3px_3px_rgb(0_0_0_/_20%)] dark:shadow-[3px_3px_rgb(255_255_255_/_40%)] bg-yellow-200 text-primary-foreground hover:bg-secondary hover:text-foreground"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 Get in touch
                             </Link>
