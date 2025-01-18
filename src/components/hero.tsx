@@ -8,8 +8,8 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <section className="py-8 space-y-20 motion-preset-blur-down motion-duration-1500">
-            <div className="flex flex-col lg:flex-row items-center gap-10">
+        <section className="py-8 space-y-20">
+            <div className="flex flex-col lg:flex-row items-center gap-10 motion-preset-blur-down motion-duration-1500">
                 <div className="order-2 lg:order-1 space-y-10 max-w-2xl">
                     <div className="space-y-2">
                         <h2 className="text-lg sm:text-xl lg:text-2xl">
