@@ -1,13 +1,11 @@
 "use client";
 
-import Clock from "@/components/clock";
 import Tools from "@/components/tools";
 import config from "@/config";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
-    console.log("render hero");
     return (
         <section className="py-8 space-y-20 motion-preset-blur-down motion-duration-1500">
             <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -73,14 +71,9 @@ export default function Hero() {
             </div>
             <div className="flex items-center justify-center gap-2 ">
                 <div className="size-[10px] bg-green-700 rounded-full motion-preset-blink motion-duration-[1200ms]" />
-                <div className="flex items-center gap-2 text-sm font-light">
-                    <p>Available for Work</p>
-                    {"-"}
-                    <div>
-                        <Clock timezone="Africa/Tunis" />,{" "}
-                        <span>{config.about.address.country}</span>
-                    </div>
-                </div>
+                <p className="text-sm font-light">
+                    Available for Work - Jan 18, 2025
+                </p>
             </div>
         </section>
     );
