@@ -19,10 +19,9 @@ export default function Hero() {
                         </h2>
                         <h1 className="font-medium text-2xl sm:text-3xl lg:text-5xl tracking-tight">
                             This is{" "}
-                            <span className="font-extrabold uppercase">
+                            <span className="font-bold uppercase">
                                 {config.about.name}
                             </span>
-                            ,
                         </h1>
                     </div>
                     <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">

@@ -8,6 +8,7 @@ import { MobileMenuProvider } from "@/contexts/mobile-menu";
 import MobileMenu from "@/components/mobile-menu";
 
 import "./globals.css";
+import ScrollTopButton from "@/components/scroll-top-button";
 
 const rubikSans = Rubik({
     variable: "--font-rubik-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
                     </MobileMenuProvider>
                     <main className="grow">{children}</main>
                     <Footer />
+                    <ScrollTopButton />
                 </Providers>
             </body>
         </html>

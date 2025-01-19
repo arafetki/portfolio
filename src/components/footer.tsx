@@ -1,5 +1,4 @@
 import Container from "@/components/container";
-import ScrollTopButton from "@/components/scroll-top-button";
 import Socials from "@/components/socials";
 import config from "@/config";
 import Link from "next/link";
@@ -7,15 +6,12 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <footer className="bg-foreground text-background py-10">
-            <Container className="flex flex-col w-full gap-12">
-                <div className="flex items-center justify-between text-muted">
-                    <p className="text-sm sm:text-base">
-                        © {new Date().getFullYear()}
-                    </p>
-                    <ScrollTopButton />
-                </div>
+            <Container className="flex flex-col w-full gap-10">
+                <p className="text-muted-foreground text-sm sm:text-base">
+                    © Copyright {new Date().getFullYear()}
+                </p>
                 <div className="w-full space-y-6">
-                    <div className="overflow-hidden mb-8">
+                    <div className="overflow-hidden mb-12">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 100 7.93"
@@ -99,10 +95,10 @@ export default function Footer() {
                             ></path>
                         </svg>
                     </div>
-                    <div className="text-center py-6">
+                    <div className="text-center">
                         <Link
                             href="https://wa.me/21620714894"
-                            className="inline-block uppercase hover:text-primary-foreground px-8 py-5 rounded-full hover:bg-primary transition-colors duration-300"
+                            className="inline-block uppercase hover:text-primary-foreground px-7 py-4 rounded-full hover:bg-primary transition-colors duration-300"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
