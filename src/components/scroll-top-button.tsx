@@ -23,7 +23,7 @@ export default function ScrollTopButton() {
     return (
         <button
             type="button"
-            className={`fixed bottom-10 right-10 p-2 rounded-full bg-primary uppercase text-sm sm:text-base animate-bounce ${
+            className={`fixed bottom-4 right-4 sm:bottom-8 sm:right-8 p-2 rounded-full bg-primary uppercase text-sm sm:text-base animate-bounce ${
                 !isvisible && "hidden"
             }`}
             onClick={() => {
