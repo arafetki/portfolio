@@ -51,7 +51,7 @@ export default function MobileMenu() {
                 </ul>
                 <Socials
                     items={config.about.socials}
-                    className="absolute bottom-20"
+                    className="absolute bottom-32"
                 />
             </div>
         </nav>

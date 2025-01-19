@@ -66,7 +66,12 @@ export default function Hero() {
             <div className="flex items-center justify-center gap-2 ">
                 <div className="size-[10px] bg-green-700 rounded-full motion-preset-blink motion-duration-[1200ms]" />
                 <p className="text-sm font-light">
-                    Available for Work - Jan 18, 2025
+                    Available for Work -{" "}
+                    {new Date().toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                    })}
                 </p>
             </div>
         </section>
